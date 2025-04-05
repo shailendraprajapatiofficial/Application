@@ -11,9 +11,10 @@ public class Controller {
 		return "Hello World";	
 	}
 	
-	@GetMapping("/add/A/B")
-	public int add(@PathVariable int A , @PathVariable int B) {
-		return (int) (A+B);
+	@GetMapping("/add/{A}/{B}")
+	public int add(@PathVariable int A,@PathVariable int B) {
+		System.out.println(A+"============================= "+B);
+		return A+B;
 	}
 	
 	
