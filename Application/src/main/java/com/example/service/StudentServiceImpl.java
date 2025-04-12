@@ -1,0 +1,39 @@
+package com.example.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.model.College;
+import com.example.model.Student;
+import com.example.repository.CollegeRepo;
+import com.example.repository.StudentRepo;
+@Service
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	StudentRepo studentRepo; 
+	@Autowired
+	CollegeRepo collegeRepo;
+	
+	@Override
+	public Student addStudent(Student student) {
+		// TODO Auto-generated method stub
+		//System.out.println(student);
+		int id = student.getCollege().getId();
+		Optional<College> byId = collegeRepo.findById(id);
+//		System.out.println(byId.get().getEmail());
+		student.setCollege(byId.get());
+		
+		
+//		student.setCollege(byId);
+				
+//		student.getCollege().getName();
+		
+		
+		//System.out.println(byId);
+		return studentRepo.save(student) ;
+	}
+
+}
