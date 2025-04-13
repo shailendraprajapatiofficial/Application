@@ -7,7 +7,8 @@ import com.example.model.College;
 
 public interface CollegeService {
 	
-	public College addCollege(College college);
-	public Optional<College> getCollege(int id);
+	 College addCollege(College college);
+	 Optional<College> getcollegeById(int id);
+	 List<College> getCollege();
 
 }

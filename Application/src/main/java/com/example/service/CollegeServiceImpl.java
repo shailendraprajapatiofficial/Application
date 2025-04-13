@@ -28,18 +28,27 @@ public class CollegeServiceImpl implements CollegeService {
 		return collegeRepo.save(college);
 	}
 
+	
+
 	@Override
-	public Optional<College> getCollege(int id) {
+	public Optional<College> getcollegeById(int id) {
 		// TODO Auto-generated method stub
-		Optional<College> all = collegeRepo.findById(id);
-		System.out.println(all);
-		
-//		List<Student> all2 = studentRepo.findAll();
-		for(Student a1: all.get().getStudents()) {
-			System.out.println(a1);
-		}
-		
-		return all;
+//		Optional<College> all = collegeRepo.findById(id);
+//		List<Student> students = all.get().getStudents();
+//		System.out.println(students);
+//		
+////		List<Student> all2 = studentRepo.findAll();
+//		for(Student a1: all.get().getStudents()) {
+//			System.out.println(a1.getStudentEmail());
+//		}
+//		
+		return collegeRepo.findById(id);
+	}
+
+	@Override
+	public List<College> getCollege() {
+		// TODO Auto-generated method stub
+		return collegeRepo.findAll();
 	}
 	
 	

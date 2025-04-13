@@ -1,11 +1,16 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
+
 
 @Entity
 @Table(name="student")
@@ -13,7 +18,7 @@ public class Student {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long studentid;
+	private int studentid;
 	private String studentName;
 	private String studentEmail;
 	
@@ -24,14 +29,15 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private College college;
 
-	public Long getStudentid() {
+	public int getStudentid() {
 		return studentid;
 	}
 
-	public void setStudentid(Long studentid) {
+	public void setStudentid(int studentid) {
 		this.studentid = studentid;
 	}
 
@@ -59,7 +65,7 @@ public class Student {
 		this.college = college;
 	}
 
-	public Student(Long studentid, String studentName, String studentEmail, College college) {
+	public Student(int studentid, String studentName, String studentEmail, College college) {
 		super();
 		this.studentid = studentid;
 		this.studentName = studentName;
@@ -70,7 +76,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [studentid=" + studentid + ", studentName=" + studentName + ", studentEmail=" + studentEmail
-				+ ", college=" + college + "]";
+				+ ", college=" +  college.getName()  + "]";
 	}
 	
 	

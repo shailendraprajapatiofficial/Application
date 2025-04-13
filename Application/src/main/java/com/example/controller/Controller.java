@@ -43,7 +43,7 @@ public class Controller {
 	
 	@GetMapping("/getCollege/{id}")
 	public Optional<College> getCollege(@PathVariable int id) {
-		return collegeService.getCollege(id);
+		return collegeService.getcollegeById(id);
 		
 	}
 	

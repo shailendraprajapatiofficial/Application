@@ -3,6 +3,12 @@ package com.example.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,13 +19,18 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="college")
 public class College {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String email;
-	@OneToMany
-	private List<Student> students=new ArrayList<>();
+//	(mappedBy = "college",cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "college", cascade = CascadeType.ALL)
+    @JoinColumn(name = "college_id")
+	@JsonManagedReference
+	private List<Student> students;
 	public int getId() {
 		return id;
 	}
