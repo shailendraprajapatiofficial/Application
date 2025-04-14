@@ -28,7 +28,7 @@ public class College {
 	private String email;
 //	(mappedBy = "college",cascade = CascadeType.ALL)
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "college", cascade = CascadeType.ALL)
-    @JoinColumn(name = "college_id")
+    
 	@JsonManagedReference
 	private List<Student> students;
 	public int getId() {

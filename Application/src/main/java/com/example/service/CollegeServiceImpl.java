@@ -13,22 +13,20 @@ import com.example.repository.CollegeRepo;
 @Service
 public class CollegeServiceImpl implements CollegeService {
 
-    private final StudentRepo studentRepo;
+	private final StudentRepo studentRepo;
 	@Autowired
 	CollegeRepo collegeRepo;
 
-    CollegeServiceImpl(StudentRepo studentRepo) {
-        this.studentRepo = studentRepo;
-    }
+	CollegeServiceImpl(StudentRepo studentRepo) {
+		this.studentRepo = studentRepo;
+	}
 
 	@Override
 	public College addCollege(College college) {
 		// TODO Auto-generated method stub
-		//college.getStudents();
+		// college.getStudents();
 		return collegeRepo.save(college);
 	}
-
-	
 
 	@Override
 	public Optional<College> getcollegeById(int id) {
@@ -50,7 +48,5 @@ public class CollegeServiceImpl implements CollegeService {
 		// TODO Auto-generated method stub
 		return collegeRepo.findAll();
 	}
-	
-	
 
 }

@@ -1,5 +1,7 @@
 package com.example.model;
 
+import javax.persistence.JoinColumn;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -10,20 +12,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
-
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class Student {
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentid;
 	private String studentName;
 	private String studentEmail;
-	
-	
-	
+
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -31,6 +29,7 @@ public class Student {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonBackReference
+	@JoinColumn(name = "college_id")
 	private College college;
 
 	public int getStudentid() {
@@ -76,8 +75,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [studentid=" + studentid + ", studentName=" + studentName + ", studentEmail=" + studentEmail
-				+ ", college=" +  college.getName()  + "]";
+				+ ", college=" + college.getName() + "]";
 	}
-	
-	
+
 }

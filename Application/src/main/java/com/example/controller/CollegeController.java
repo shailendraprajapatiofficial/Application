@@ -11,47 +11,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.dto.StudentInfoDTO;
 import com.example.model.College;
 import com.example.model.Student;
 import com.example.service.CollegeService;
+import com.example.service.StudentInfoService;
 import com.example.service.StudentService;
 
 @RestController
-public class Controller {
-	
+public class CollegeController {
+
 	@Autowired
 	CollegeService collegeService;
 	@Autowired
 	StudentService studentService;
+
+	@Autowired
+	StudentInfoService studentInfoService;
+
 	@GetMapping("/")
 	public String helloworld() {
-		return "Hello World";	
+		return "Hello World";
 	}
-	
+
 	@GetMapping("/add/{A}/{B}")
-	public int add(@PathVariable int A,@PathVariable int B) {
-		System.out.println(A+"============================= "+B);
-		return A+B;
+	public int add(@PathVariable int A, @PathVariable int B) {
+		System.out.println(A + "============================= " + B);
+		return A + B;
 	}
-	
+
 	@PostMapping("/addCollege")
 	public College addCollege(@RequestBody College college) {
-		
-		return collegeService.addCollege(college);	
-		
+
+		return collegeService.addCollege(college);
+
 	}
-	
+
 	@GetMapping("/getCollege/{id}")
-	public Optional<College> getCollege(@PathVariable int id) {
+	public Optional<College> getCollegeByID(@PathVariable int id) {
 		return collegeService.getcollegeById(id);
-		
+
 	}
-	
-	@PostMapping("/addStudent")
-	public Student addStudent (@RequestBody Student student) {
-		return studentService.addStudent(student);
-		
+
+	@GetMapping("/getCollege")
+	public List<College> getCollege() {
+		return collegeService.getCollege();
 	}
-	
+
 }
-	
