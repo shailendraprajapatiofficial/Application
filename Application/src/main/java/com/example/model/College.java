@@ -23,31 +23,31 @@ public class College {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private String name;
-	private String email;
+	private int collegeId;
+	private String collegeName;
+	private String collegeEmail;
 //	(mappedBy = "college",cascade = CascadeType.ALL)
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "college", cascade = CascadeType.ALL)
     
 	@JsonManagedReference
 	private List<Student> students;
-	public int getId() {
-		return id;
+	public int getcollegeId() {
+		return collegeId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int collegeId) {
+		this.collegeId = collegeId;
 	}
-	public String getName() {
-		return name;
+	public String getcollegeName() {
+		return collegeName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setcollegeName(String collegeName) {
+		this.collegeName = collegeName;
 	}
-	public String getEmail() {
-		return email;
+	public String getcollegeEmail() {
+		return collegeEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setcollegeEmail(String collegeEmail) {
+		this.collegeEmail = collegeEmail;
 	}
 	public List<Student> getStudents() {
 		return students;
@@ -55,11 +55,11 @@ public class College {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-	public College(int id, String name, String email, List<Student> students) {
+	public College(int collegeId, String collegeName, String collegeEmail, List<Student> students) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
+		this.collegeId = collegeId;
+		this.collegeName = collegeName;
+		this.collegeEmail = collegeEmail;
 		this.students = students;
 	}
 	public College() {
@@ -68,7 +68,7 @@ public class College {
 	}
 	@Override
 	public String toString() {
-		return "College [id=" + id + ", name=" + name + ", email=" + email + ", students=" + students + "]";
+		return "College [collegeId=" + collegeId + ", collegeName=" + collegeName + ", collegeEmail=" + collegeEmail + ", students=" + students + "]";
 	}
 	
 	

@@ -24,9 +24,9 @@ public class StudentServiceImpl implements StudentService {
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
 		System.out.println(student);
-		int id = student.getCollege().getId();
+		int id = student.getCollege().getcollegeId();
 		Optional<College> byId = collegeRepo.findById(id);
-		System.out.println(byId.get().getEmail());
+		System.out.println(byId.get().getcollegeEmail());
 		student.setCollege(byId.get());
 
 //		student.setCollege(byId);

@@ -24,9 +24,10 @@ public class StudentInfoServiceImp implements StudentInfoService {
 	private StudentInfoDTO convertEntityToDTO(Student student) {
 
 		StudentInfoDTO studentInfoDTO = new StudentInfoDTO();
-		studentInfoDTO.setStudentId(student.getStudentName());
+		studentInfoDTO.setStudentId(student.getStudentId());
+		studentInfoDTO.setStudentName(student.getStudentName());
 		studentInfoDTO.setStudentEmail(student.getStudentEmail());
-		studentInfoDTO.setName(student.getCollege().getName());
+		studentInfoDTO.setCollegeName(student.getCollege().getcollegeEmail());
 
 		return studentInfoDTO;
 

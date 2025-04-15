@@ -1,15 +1,22 @@
 package com.example.dto;
 
 public class StudentInfoDTO {
-	
-	private String studentId;
+
+	private int studentId;
+	private String studentName;
 	private String studentEmail;
-	private String name;
-	public String getStudentId() {
+	private String collegeName;
+	public int getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(String studentId) {
+	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 	public String getStudentEmail() {
 		return studentEmail;
@@ -17,22 +24,25 @@ public class StudentInfoDTO {
 	public void setStudentEmail(String studentEmail) {
 		this.studentEmail = studentEmail;
 	}
-	public String getName() {
-		return name;
+	public String getCollegeName() {
+		return collegeName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCollegeName(String collegeName) {
+		this.collegeName = collegeName;
+	}
+	public StudentInfoDTO(int studentId, String studentName, String studentEmail, String collegeName) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentEmail = studentEmail;
+		this.collegeName = collegeName;
 	}
 	public StudentInfoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public StudentInfoDTO(String studentId, String studentEmail, String name) {
-		super();
-		this.studentId = studentId;
-		this.studentEmail = studentEmail;
-		this.name = name;
-	}
+	
+	
 	
 
 }

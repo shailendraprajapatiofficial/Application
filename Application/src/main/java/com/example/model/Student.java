@@ -18,7 +18,7 @@ public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int studentid;
+	private int studentId;
 	private String studentName;
 	private String studentEmail;
 
@@ -32,12 +32,12 @@ public class Student {
 	@JoinColumn(name = "college_id")
 	private College college;
 
-	public int getStudentid() {
-		return studentid;
+	public int getStudentId() {
+		return studentId;
 	}
 
-	public void setStudentid(int studentid) {
-		this.studentid = studentid;
+	public void setStudentid(int studentId) {
+		this.studentId = studentId;
 	}
 
 	public String getStudentName() {
@@ -64,9 +64,9 @@ public class Student {
 		this.college = college;
 	}
 
-	public Student(int studentid, String studentName, String studentEmail, College college) {
+	public Student(int studentId, String studentName, String studentEmail, College college) {
 		super();
-		this.studentid = studentid;
+		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentEmail = studentEmail;
 		this.college = college;
@@ -74,8 +74,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [studentid=" + studentid + ", studentName=" + studentName + ", studentEmail=" + studentEmail
-				+ ", college=" + college.getName() + "]";
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentEmail=" + studentEmail
+				+ ", college=" + college.getcollegeEmail() + "]";
 	}
 
 }
