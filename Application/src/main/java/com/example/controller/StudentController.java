@@ -33,7 +33,7 @@ public class StudentController {
 	@PostMapping("/addStudent")
 	public Student addStudent(@RequestBody Student student) {
 		String getStudentName = student.getStudentName();
-		if(getStudentName.length()==0) throw new RuntimeException("Enter The college Name");
+		if(getStudentName.length()==0) throw new RuntimeException("Enter The Student Name");
 		return studentService.addStudent(student);
 
 	}
