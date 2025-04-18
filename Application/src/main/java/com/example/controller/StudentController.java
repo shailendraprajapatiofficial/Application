@@ -40,6 +40,8 @@ public class StudentController {
 	public String handleStudentNameNotFoundException(RuntimeException ex) {
 		return ex.getMessage();
 	}
+	
+	
 
 	@GetMapping("/getStudent")
 	public List<Student> getStudent() {
