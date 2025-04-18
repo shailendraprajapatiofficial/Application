@@ -48,6 +48,7 @@ public class StudentController {
 		return new ResponseEntity<List<Student>>(studentService.getallStudent(), HttpStatus.FOUND);
 		
 		
+		
 	}
 
 	@GetMapping("/getStudentInfo")
