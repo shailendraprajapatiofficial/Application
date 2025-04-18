@@ -47,8 +47,6 @@ public class StudentController {
 	public  ResponseEntity<List<Student>> getStudent() {
 		return new ResponseEntity<List<Student>>(studentService.getallStudent(), HttpStatus.FOUND);
 		
-		
-		
 	}
 
 	@GetMapping("/getStudentInfo")
