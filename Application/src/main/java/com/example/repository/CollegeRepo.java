@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.example.model.College;
 @Repository
 public interface CollegeRepo extends JpaRepository<College, Integer>{
-
+	
 }

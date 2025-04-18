@@ -49,4 +49,11 @@ public class CollegeServiceImpl implements CollegeService {
 		return collegeRepo.findAll();
 	}
 
+	@Override
+	public void deleteCollgeByID(int id) {
+		// TODO Auto-generated method stub
+		 collegeRepo.deleteById(id);
+	}
+
+	
 }

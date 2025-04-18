@@ -12,5 +12,7 @@ public interface CollegeService {
 	Optional<College> getcollegeById(int id);
 
 	List<College> getCollege();
+	void deleteCollgeByID(int id);
+	
 
 }
