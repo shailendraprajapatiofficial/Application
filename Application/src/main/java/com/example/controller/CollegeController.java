@@ -75,6 +75,7 @@ public class CollegeController {
 		collegeService.deleteCollgeByID(id);
 		return new ResponseEntity<String>("Deleted", HttpStatus.NOT_FOUND);
 		
+		
 	}
 
 }
