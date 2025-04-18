@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +44,8 @@ public class StudentController {
 	}
 
 	@GetMapping("/getStudent")
-	public List<Student> getStudent() {
-		return studentService.getallStudent();
+	public  ResponseEntity<List<Student>> getStudent() {
+		return new ResponseEntity<List<Student>>(studentService.getallStudent(), HttpStatus.FOUND);
 	}
 
 	@GetMapping("/getStudentInfo")
