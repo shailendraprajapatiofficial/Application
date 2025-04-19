@@ -36,6 +36,7 @@ public class CollegeController {
 
 	@GetMapping("/")
 	public String helloworld() {
+		System.out.println("Ahsan Pushed code");
 		return "Hello World";
 	}
 
